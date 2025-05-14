@@ -1,0 +1,18 @@
+name: Run Shell Script
+
+on:
+  workflow_dispatch:  # Bisa dijalankan manual
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Run the script
+        run: ./run.sh
